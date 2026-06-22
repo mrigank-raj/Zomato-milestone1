@@ -1,0 +1,50 @@
+/* ================================================================
+   App Layout — Two-panel desktop-first layout
+   ================================================================ */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-main {
+  display: flex;
+  flex: 1;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.app-sidebar {
+  width: 380px;
+  min-width: 380px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.app-results {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Responsive (tablet) ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .app-main {
+    flex-direction: column;
+    padding: var(--space-md);
+  }
+
+  .app-sidebar {
+    width: 100%;
+    min-width: unset;
+    position: static;
+    max-height: unset;
+  }
+}

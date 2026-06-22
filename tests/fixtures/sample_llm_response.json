@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    {
+      "restaurant_id": "r1",
+      "rank": 1,
+      "explanation": "Great Italian place."
+    },
+    {
+      "restaurant_id": "r2",
+      "rank": 2,
+      "explanation": "Nice ambiance and good rating."
+    }
+  ],
+  "summary": "Here are some top Italian places in your area."
+}

@@ -1,0 +1,188 @@
+/* ── Recommendation Card ──────────────────────────────────────── */
+
+.rec-card {
+  display: flex;
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.rec-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ── Image ────────────────────────────────────────────────────── */
+.rec-card-image {
+  position: relative;
+  width: 200px;
+  min-width: 200px;
+  overflow: hidden;
+}
+
+.rec-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.rec-card:hover .rec-card-image img {
+  transform: scale(1.06);
+}
+
+.rec-card-rank {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--zomato-red);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Body ─────────────────────────────────────────────────────── */
+.rec-card-body {
+  flex: 1;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ── Header row ───────────────────────────────────────────────── */
+.rec-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.rec-card-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.rec-card-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(135deg, #2d7d32, #4caf50);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.rating-star {
+  font-size: 0.7rem;
+}
+
+/* ── Meta ─────────────────────────────────────────────────────── */
+.rec-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.rec-card-location,
+.rec-card-cost {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── Cuisine tags ─────────────────────────────────────────────── */
+.rec-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cuisine-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+/* ── Explanation ──────────────────────────────────────────────── */
+.rec-card-explanation {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(226, 55, 68, 0.06);
+  border-left: 3px solid var(--zomato-red);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: var(--space-xs);
+}
+
+.explanation-icon {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  margin-top: 1px;
+}
+
+.rec-card-explanation p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.rec-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: auto;
+  padding-top: var(--space-xs);
+}
+
+.rec-card-address {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 250px;
+}
+
+/* ── Star rating (inline) ─────────────────────────────────────── */
+.star-rating {
+  color: var(--amber);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.star-half {
+  opacity: 0.4;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .rec-card {
+    flex-direction: column;
+  }
+
+  .rec-card-image {
+    width: 100%;
+    min-width: unset;
+    height: 180px;
+  }
+}

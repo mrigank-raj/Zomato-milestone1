@@ -1,0 +1,258 @@
+/* ── Results Panel ────────────────────────────────────────────── */
+
+.results-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+.results-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.results-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.results-title-icon {
+  font-size: 1.3rem;
+}
+
+.results-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 4px 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+}
+
+/* ── Summary banner ───────────────────────────────────────────── */
+.results-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  margin-top: var(--space-sm);
+  background: rgba(226, 55, 68, 0.08);
+  border: 1px solid rgba(226, 55, 68, 0.15);
+  border-radius: var(--radius-md);
+}
+
+.summary-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.results-summary p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ── Results list ─────────────────────────────────────────────── */
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ── Results footer ───────────────────────────────────────────── */
+.results-footer {
+  text-align: center;
+  padding: var(--space-md);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* ── Skeleton Cards ───────────────────────────────────────────── */
+.skeleton-card {
+  display: flex;
+  overflow: hidden;
+  min-height: 180px;
+}
+
+.skeleton-image {
+  width: 200px;
+  min-width: 200px;
+  height: auto;
+  border-radius: 0;
+}
+
+.skeleton-body {
+  flex: 1;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 22px;
+}
+
+.skeleton-meta {
+  width: 45%;
+  height: 14px;
+}
+
+.skeleton-tags-row {
+  display: flex;
+  gap: 8px;
+}
+
+.skeleton-tag {
+  width: 60px;
+  height: 22px;
+  border-radius: var(--radius-pill) !important;
+}
+
+.skeleton-text {
+  width: 90%;
+  height: 14px;
+}
+
+.skeleton-text.short {
+  width: 55%;
+}
+
+/* ── Empty State ──────────────────────────────────────────────── */
+.results-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-xl);
+  gap: var(--space-md);
+}
+
+.empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: var(--space-sm);
+  opacity: 0.4;
+}
+
+.results-empty h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.results-empty p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* ── Error Banner ─────────────────────────────────────────────── */
+.results-error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: rgba(226, 55, 68, 0.1);
+  border: 1px solid rgba(226, 55, 68, 0.25);
+  border-radius: var(--radius-md);
+}
+
+.error-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.error-content strong {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--coral);
+  margin-bottom: 4px;
+}
+
+.error-content p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+/* ── Welcome State ────────────────────────────────────────────── */
+.results-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px var(--space-xl);
+  gap: var(--space-lg);
+}
+
+.welcome-visual {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-icon {
+  font-size: 2.5rem;
+  z-index: 2;
+}
+
+.welcome-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border-glass);
+}
+
+.ring-1 {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(226, 55, 68, 0.2);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.ring-2 {
+  width: 90px;
+  height: 90px;
+  border-color: rgba(226, 55, 68, 0.12);
+  animation: pulse 3s ease-in-out infinite 0.5s;
+}
+
+.ring-3 {
+  width: 120px;
+  height: 120px;
+  border-color: rgba(226, 55, 68, 0.06);
+  animation: pulse 3s ease-in-out infinite 1s;
+}
+
+.results-welcome h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.results-welcome p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 400px;
+  line-height: 1.6;
+}

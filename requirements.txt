@@ -1,0 +1,8 @@
+datasets
+pandas
+python-dotenv
+fastapi
+uvicorn[standard]
+groq
+pytest
+requests
