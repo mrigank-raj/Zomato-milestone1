@@ -13,8 +13,8 @@ export default function Header() {
 
         <nav className="header-nav">
           <a href="#" className="header-nav-link active">Discover</a>
-          <a href="#" className="header-nav-link">Favorites</a>
-          <a href="#" className="header-nav-link">History</a>
+          <a href="#" className="header-nav-link" onClick={(e) => { e.preventDefault(); alert("Favorites feature coming soon!"); }}>Favorites</a>
+          <a href="#" className="header-nav-link" onClick={(e) => { e.preventDefault(); alert("History feature coming soon!"); }}>History</a>
         </nav>
 
         <div className="header-actions">

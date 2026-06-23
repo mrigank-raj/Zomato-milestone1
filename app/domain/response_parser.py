@@ -13,6 +13,7 @@ class LLMResponseParser:
         
         candidate_map = {c.id: c for c in candidates}
         recommendations = []
+        seen_ids = set()
         
         summary = parsed_data.get("summary")
         is_first = True
@@ -22,6 +23,11 @@ class LLMResponseParser:
             if rid not in candidate_map:
                 logging.warning(f"Hallucinated restaurant_id: {rid}")
                 continue
+            
+            if rid in seen_ids:
+                logging.warning(f"Duplicate restaurant_id from LLM: {rid}")
+                continue
+            seen_ids.add(rid)
                 
             rank = item.get("rank", len(recommendations) + 1)
             explanation = item.get("explanation", "")
@@ -37,6 +43,11 @@ class LLMResponseParser:
             
         # Sort by rank
         recommendations.sort(key=lambda x: x.rank)
+        
+        # Update ranks to be sequential after deduplication
+        for i, rec in enumerate(recommendations):
+            rec.rank = i + 1
+            
         return recommendations
         
     def _extract_json(self, text: str) -> dict | None:
