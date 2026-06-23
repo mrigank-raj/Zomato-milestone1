@@ -52,6 +52,18 @@ class RestaurantFilter:
 
             candidates.append(r)
 
+        # Deduplicate by (name, location) — the Zomato dataset has many
+        # duplicate rows for the same restaurant.  Keep the entry with the
+        # most votes as the representative.
+        seen: dict[str, Restaurant] = {}
+        for r in candidates:
+            key = (r.name.strip().lower(), r.location.strip().lower())
+            existing = seen.get(key)
+            if existing is None or (r.votes or 0) > (existing.votes or 0):
+                seen[key] = r
+        candidates = list(seen.values())
+        logger.info(f"After deduplication: {len(candidates)} unique restaurants.")
+
         # Sort by rating descending, then by votes descending as tiebreaker
         candidates.sort(key=lambda r: (r.rating, r.votes or 0), reverse=True)
 
